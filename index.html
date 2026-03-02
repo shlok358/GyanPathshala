@@ -1,0 +1,1082 @@
+<!doctype html>
+<html lang="en" class="h-full">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gyan Pathshala - Nurturing Talents, Shaping Futures</title>
+    <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+    <script src="/_sdk/element_sdk.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&amp;family=Playfair+Display:wght@600;700&amp;display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .font-display {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .hero-gradient {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+        }
+
+        .card-hover {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 25px 50px -12px rgba(102, 126, 234, 0.35);
+        }
+
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+
+        @keyframes floating {
+
+            0%,
+            100% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+
+            0%,
+            100% {
+                box-shadow: 0 0 20px rgba(102, 126, 234, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 40px rgba(102, 126, 234, 0.8);
+            }
+        }
+
+        .scroll-smooth {
+            scroll-behavior: smooth;
+        }
+
+        .nav-link {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .blob {
+            border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            animation: blob 8s ease-in-out infinite;
+        }
+
+        @keyframes blob {
+
+            0%,
+            100% {
+                border-radius: 42% 58% 70% 30% / 45% 45% 55% 55%;
+            }
+
+            25% {
+                border-radius: 58% 42% 30% 70% / 55% 45% 45% 55%;
+            }
+
+            50% {
+                border-radius: 70% 30% 58% 42% / 45% 55% 55% 45%;
+            }
+
+            75% {
+                border-radius: 30% 70% 42% 58% / 55% 55% 45% 45%;
+            }
+        }
+
+        .feature-icon {
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover .feature-icon {
+            transform: scale(1.2) rotate(10deg);
+        }
+
+        input:focus,
+        textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.3);
+        }
+    </style>
+    <style>
+        body {
+            box-sizing: border-box;
+        }
+    </style>
+    <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+</head>
+
+<body class="h-full bg-slate-50 scroll-smooth">
+    <div id="app-wrapper" class="w-full h-full overflow-auto"><!-- Navigation -->
+        <nav id="navbar"
+            class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/90 backdrop-blur-md shadow-sm">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16 md:h-20"><!-- Logo -->
+                    <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+                        <div
+                            class="w-10 h-10 md:w-12 md:h-12 rounded-xl hero-gradient flex items-center justify-center shadow-lg">
+                            <span class="text-white font-bold text-lg md:text-xl">GP</span>
+                        </div><span
+                            class="font-display font-bold text-xl md:text-2xl gradient-text hidden sm:block">Gyan
+                            Pathshala</span>
+                    </div><!-- Desktop Menu -->
+                    <div class="hidden md:flex items-center gap-8"><a onclick="navigateTo('home')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 font-medium cursor-pointer py-2">Home</a>
+                        <a onclick="navigateTo('about')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 font-medium cursor-pointer py-2">About</a>
+                        <a onclick="navigateTo('blog')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 font-medium cursor-pointer py-2">Blog</a>
+                        <a onclick="navigateTo('contact')"
+                            class="nav-link text-gray-700 hover:text-indigo-600 font-medium cursor-pointer py-2">Contact</a>
+                        <a href="tel:+918847814633"
+                            class="px-6 py-2.5 hero-gradient text-white rounded-full font-semibold shadow-lg hover:shadow-xl transition-all hover:scale-105">
+                            📞 Call Now </a>
+                    </div><!-- Mobile Menu Button --> <button onclick="toggleMobileMenu()"
+                        class="md:hidden p-2 rounded-lg hover:bg-gray-100">
+                        <svg id="menu-icon" class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor"
+                            viewbox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16" />
+                        </svg></button>
+                </div>
+            </div><!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+                <div class="px-4 py-4 space-y-3"><a onclick="navigateTo('home'); toggleMobileMenu();"
+                        class="block py-2 px-4 rounded-lg text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 font-medium cursor-pointer">Home</a>
+                    <a onclick="navigateTo('about'); toggleMobileMenu();"
+                        class="block py-2 px-4 rounded-lg text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 font-medium cursor-pointer">About</a>
+                    <a onclick="navigateTo('blog'); toggleMobileMenu();"
+                        class="block py-2 px-4 rounded-lg text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 font-medium cursor-pointer">Blog</a>
+                    <a onclick="navigateTo('contact'); toggleMobileMenu();"
+                        class="block py-2 px-4 rounded-lg text-gray-700 hover:bg-indigo-50 hover:text-indigo-600 font-medium cursor-pointer">Contact</a>
+                    <a href="tel:+918847814633"
+                        class="block py-3 px-4 hero-gradient text-white rounded-lg font-semibold text-center">📞 Call
+                        Now</a>
+                </div>
+            </div>
+        </nav><!-- Page Container -->
+        <div id="page-container"><!-- HOME PAGE -->
+            <div id="home-page" class="page-section"><!-- Hero Section -->
+                <section class="relative min-h-screen flex items-center overflow-hidden pt-20">
+                    <!-- Background Elements -->
+                    <div class="absolute inset-0 hero-gradient opacity-10"></div>
+                    <div class="absolute top-20 right-0 w-72 h-72 md:w-96 md:h-96 bg-purple-400 blob opacity-20"></div>
+                    <div class="absolute bottom-20 left-0 w-64 h-64 md:w-80 md:h-80 bg-indigo-400 blob opacity-20"
+                        style="animation-delay: -4s;"></div>
+                    <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="text-center lg:text-left">
+                                <div
+                                    class="inline-flex items-center gap-2 px-4 py-2 bg-indigo-100 rounded-full text-indigo-700 font-medium text-sm mb-6">
+                                    <span class="w-2 h-2 bg-indigo-500 rounded-full animate-pulse"></span> Welcome to
+                                    Excellence
+                                </div>
+                                <h1
+                                    class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
+                                    <span class="gradient-text" id="hero-title-display">Gyan Pathshala</span>
+                                </h1>
+                                <p id="hero-message-display"
+                                    class="text-lg md:text-xl text-gray-600 mb-8 leading-relaxed">Where innovative
+                                    teaching meets boundless possibilities, guiding students towards a brighter
+                                    tomorrow.</p>
+                                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start"><button
+                                        onclick="navigateTo('contact')"
+                                        class="px-8 py-4 hero-gradient text-white rounded-full font-semibold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-105 pulse-glow">
+                                        Start Learning Today ✨ </button> <button
+                                        onclick="document.getElementById('courses-section').scrollIntoView({behavior: 'smooth'})"
+                                        class="px-8 py-4 bg-white text-indigo-600 rounded-full font-semibold text-lg shadow-lg hover:shadow-xl transition-all border-2 border-indigo-100 hover:border-indigo-200">
+                                        Explore Courses 📚 </button>
+                                </div><!-- Quick Stats -->
+                                <div class="mt-12 grid grid-cols-3 gap-4 md:gap-8">
+                                    <div class="text-center">
+                                        <div class="text-2xl md:text-3xl font-bold gradient-text">
+                                            500+
+                                        </div>
+                                        <div class="text-gray-500 text-sm">
+                                            Happy Students
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl md:text-3xl font-bold gradient-text">
+                                            4.9★
+                                        </div>
+                                        <div class="text-gray-500 text-sm">
+                                            Rating
+                                        </div>
+                                    </div>
+                                    <div class="text-center">
+                                        <div class="text-2xl md:text-3xl font-bold gradient-text">
+                                            95%
+                                        </div>
+                                        <div class="text-gray-500 text-sm">
+                                            Success Rate
+                                        </div>
+                                    </div>
+                                </div>
+                            </div><!-- Hero Image/Illustration -->
+                            <div class="relative hidden lg:block">
+                                <div class="relative w-full aspect-square max-w-lg mx-auto">
+                                    <div class="absolute inset-0 hero-gradient rounded-3xl rotate-6 opacity-20"></div>
+                                    <div
+                                        class="absolute inset-0 bg-white rounded-3xl shadow-2xl flex items-center justify-center overflow-hidden">
+                                        <div class="text-center p-8">
+                                            <div class="text-8xl mb-4 floating">
+                                                📚
+                                            </div>
+                                            <div class="text-6xl mb-4 floating" style="animation-delay: -1s;">
+                                                🎓
+                                            </div>
+                                            <div class="text-7xl floating" style="animation-delay: -2s;">
+                                                💡
+                                            </div>
+                                        </div>
+                                    </div><!-- Floating Elements -->
+                                    <div
+                                        class="absolute -top-4 -right-4 w-20 h-20 bg-yellow-400 rounded-2xl flex items-center justify-center shadow-xl floating">
+                                        <span class="text-3xl">⭐</span>
+                                    </div>
+                                    <div class="absolute -bottom-4 -left-4 w-16 h-16 bg-green-400 rounded-2xl flex items-center justify-center shadow-xl floating"
+                                        style="animation-delay: -1.5s;"><span class="text-2xl">✓</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Why Students Love Us -->
+                <section class="py-20 bg-white relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-full h-1 hero-gradient"></div>
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-indigo-100 rounded-full text-indigo-700 font-semibold text-sm mb-4">Our
+                                Approach</span>
+                            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Why
+                                Students <span class="gradient-text">Love Us</span></h2>
+                            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Discover what makes Gyan Pathshala the
+                                preferred choice for thousands of students</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Feature Cards -->
+                            <div class="feature-card glass-card rounded-2xl p-8 card-hover cursor-pointer group">
+                                <div
+                                    class="feature-icon w-16 h-16 bg-gradient-to-br from-pink-500 to-rose-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                    <span class="text-3xl">🎮</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Fun Teaching</h3>
+                                <p class="text-gray-600">Classes are made exciting like an adventure. Learning feels
+                                    like play!</p>
+                            </div>
+                            <div class="feature-card glass-card rounded-2xl p-8 card-hover cursor-pointer group">
+                                <div
+                                    class="feature-icon w-16 h-16 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                    <span class="text-3xl">🎯</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Personal Attention</h3>
+                                <p class="text-gray-600">One-to-one help so students never feel lost in their learning
+                                    journey.</p>
+                            </div>
+                            <div class="feature-card glass-card rounded-2xl p-8 card-hover cursor-pointer group">
+                                <div
+                                    class="feature-icon w-16 h-16 bg-gradient-to-br from-violet-500 to-purple-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                    <span class="text-3xl">💪</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Inspiring Guidance</h3>
+                                <p class="text-gray-600">Teachers who support and encourage students to achieve their
+                                    best.</p>
+                            </div>
+                            <div class="feature-card glass-card rounded-2xl p-8 card-hover cursor-pointer group">
+                                <div
+                                    class="feature-icon w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                    <span class="text-3xl">🎨</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Enjoyable Classes</h3>
+                                <p class="text-gray-600">Games, activities &amp; stories make every class memorable and
+                                    engaging.</p>
+                            </div>
+                            <div class="feature-card glass-card rounded-2xl p-8 card-hover cursor-pointer group">
+                                <div
+                                    class="feature-icon w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                    <span class="text-3xl">📈</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Great Grades</h3>
+                                <p class="text-gray-600">Focused approach helps students succeed academically with
+                                    confidence.</p>
+                            </div>
+                            <div class="feature-card glass-card rounded-2xl p-8 card-hover cursor-pointer group">
+                                <div
+                                    class="feature-icon w-16 h-16 bg-gradient-to-br from-teal-500 to-cyan-500 rounded-2xl flex items-center justify-center mb-6 shadow-lg">
+                                    <span class="text-3xl">🌱</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-3">Happy Growth</h3>
+                                <p class="text-gray-600">Encourages growth beyond books — emotional and personal
+                                    development too.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Courses Section -->
+                <section id="courses-section" class="py-20 bg-gradient-to-b from-slate-50 to-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-purple-100 rounded-full text-purple-700 font-semibold text-sm mb-4">Our
+                                Programs</span>
+                            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                                Latest <span class="gradient-text">Courses</span></h2>
+                            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Structured learning programs designed for
+                                academic excellence</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto"><!-- Shakti Batch -->
+                            <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
+                                <div
+                                    class="h-48 hero-gradient flex items-center justify-center relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/10"></div>
+                                    <div class="relative text-center"><span class="text-6xl mb-2 block">⚡</span> <span
+                                            class="text-white font-bold text-2xl" id="main-course-display">Shakti Batch
+                                            2025</span>
+                                    </div>
+                                </div>
+                                <div class="p-8">
+                                    <div class="flex items-center gap-2 mb-4"><span
+                                            class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Class
+                                            10</span> <span
+                                            class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Online</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3">Science &amp; Mathematics</h3>
+                                    <p class="text-gray-600 mb-6">Daily comprehensive classes for Class 10 students
+                                        conducted online via Google Meet. Master concepts with expert guidance.</p>
+                                    <ul class="space-y-2 mb-6">
+                                        <li class="flex items-center gap-2 text-gray-700"><span
+                                                class="text-green-500">✓</span> Daily Live Classes</li>
+                                        <li class="flex items-center gap-2 text-gray-700"><span
+                                                class="text-green-500">✓</span> Doubt Clearing Sessions</li>
+                                        <li class="flex items-center gap-2 text-gray-700"><span
+                                                class="text-green-500">✓</span> Practice Materials</li>
+                                    </ul><button onclick="navigateTo('contact')"
+                                        class="w-full py-3 hero-gradient text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                                        Learn More → </button>
+                                </div>
+                            </div><!-- Aarambh Batch -->
+                            <div class="bg-white rounded-3xl overflow-hidden shadow-xl card-hover group">
+                                <div
+                                    class="h-48 bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center relative overflow-hidden">
+                                    <div class="absolute inset-0 bg-black/10"></div>
+                                    <div class="relative text-center"><span class="text-6xl mb-2 block">🚀</span> <span
+                                            class="text-white font-bold text-2xl">Aarambh Batch 2025</span>
+                                    </div>
+                                </div>
+                                <div class="p-8">
+                                    <div class="flex items-center gap-2 mb-4"><span
+                                            class="px-3 py-1 bg-teal-100 text-teal-700 rounded-full text-sm font-medium">Class
+                                            11</span> <span
+                                            class="px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium">Online</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-3">Chemistry Excellence</h3>
+                                    <p class="text-gray-600 mb-6">Daily Chemistry classes for Class 11 students
+                                        conducted online via Google Meet. Build a strong foundation for your future.</p>
+                                    <ul class="space-y-2 mb-6">
+                                        <li class="flex items-center gap-2 text-gray-700"><span
+                                                class="text-green-500">✓</span> Concept-Based Learning</li>
+                                        <li class="flex items-center gap-2 text-gray-700"><span
+                                                class="text-green-500">✓</span> Regular Assessments</li>
+                                        <li class="flex items-center gap-2 text-gray-700"><span
+                                                class="text-green-500">✓</span> Interactive Sessions</li>
+                                    </ul><button onclick="navigateTo('contact')"
+                                        class="w-full py-3 bg-gradient-to-r from-emerald-500 to-teal-600 text-white rounded-xl font-semibold hover:shadow-lg transition-all">
+                                        Learn More → </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Testimonials Section -->
+                <section class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-amber-100 rounded-full text-amber-700 font-semibold text-sm mb-4">Success
+                                Stories</span>
+                            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+                                Student <span class="gradient-text">Testimonials</span></h2>
+                            <p class="text-gray-600 text-lg max-w-2xl mx-auto">Hear from our students and parents about
+                                their experience</p>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div class="bg-gradient-to-br from-indigo-50 to-purple-50 rounded-2xl p-8 card-hover">
+                                <div class="flex items-center gap-1 mb-4"><span
+                                        class="text-yellow-400 text-xl">★★★★★</span>
+                                </div>
+                                <p class="text-gray-700 mb-6 italic">"The teaching methodology here is exceptional. My
+                                    marks improved from 75% to 92% in just 6 months!"</p>
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold">
+                                        A
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900">
+                                            Asmit
+                                        </div>
+                                        <div class="text-sm text-gray-500">
+                                            Class 10 • 92% Score
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-pink-50 to-rose-50 rounded-2xl p-8 card-hover">
+                                <div class="flex items-center gap-1 mb-4"><span
+                                        class="text-yellow-400 text-xl">★★★★★</span>
+                                </div>
+                                <p class="text-gray-700 mb-6 italic">"Ravi Sir's personal attention and guidance helped
+                                    me achieve 95%. Forever grateful to Gyan Pathshala!"</p>
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-pink-500 rounded-full flex items-center justify-center text-white font-bold">
+                                        K
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900">
+                                            Kalpana
+                                        </div>
+                                        <div class="text-sm text-gray-500">
+                                            Class 10 • 95% Score
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="bg-gradient-to-br from-emerald-50 to-teal-50 rounded-2xl p-8 card-hover">
+                                <div class="flex items-center gap-1 mb-4"><span
+                                        class="text-yellow-400 text-xl">★★★★★</span>
+                                </div>
+                                <p class="text-gray-700 mb-6 italic">"Fun learning environment with serious results.
+                                    Scored 93% and gained confidence in Science and Math!"</p>
+                                <div class="flex items-center gap-4">
+                                    <div
+                                        class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold">
+                                        G
+                                    </div>
+                                    <div>
+                                        <div class="font-bold text-gray-900">
+                                            Garvit
+                                        </div>
+                                        <div class="text-sm text-gray-500">
+                                            Class 10 • 93% Score
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div><!-- Parent Testimonial -->
+                        <div
+                            class="mt-12 bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white max-w-4xl mx-auto">
+                            <div class="flex items-center gap-1 mb-4"><span
+                                    class="text-yellow-300 text-2xl">★★★★★</span>
+                            </div>
+                            <p class="text-xl md:text-2xl font-light italic mb-6">"As a parent, I'm amazed by the
+                                transformation in my child's academic performance and confidence. The teachers truly
+                                care about each student's growth."</p>
+                            <div class="flex items-center gap-4">
+                                <div
+                                    class="w-14 h-14 bg-white/20 rounded-full flex items-center justify-center text-xl font-bold">
+                                    AS
+                                </div>
+                                <div>
+                                    <div class="font-bold text-lg">
+                                        Abha Singh
+                                    </div>
+                                    <div class="text-indigo-200">
+                                        Parent
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Founder Section -->
+                <section class="py-20 bg-slate-50">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="grid lg:grid-cols-2 gap-12 items-center">
+                            <div class="relative">
+                                <div class="absolute inset-0 hero-gradient rounded-3xl rotate-3 opacity-20"></div>
+                                <div class="relative bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                                    <div
+                                        class="w-24 h-24 hero-gradient rounded-2xl flex items-center justify-center mb-6 shadow-xl">
+                                        <span class="text-5xl">👨‍🏫</span>
+                                    </div>
+                                    <h3 class="font-display text-3xl font-bold text-gray-900 mb-2">Ravi Sir</h3>
+                                    <p class="text-indigo-600 font-semibold mb-6">Founder &amp; Lead Educator</p>
+                                    <p class="text-gray-600 text-lg leading-relaxed">"Ignite curiosity, nurture talents,
+                                        sculpt futures. Every student has unlimited potential waiting to be discovered.
+                                        At Gyan Pathshala, we don't just teach — we inspire."</p>
+                                </div>
+                            </div>
+                            <div><span
+                                    class="inline-block px-4 py-2 bg-indigo-100 rounded-full text-indigo-700 font-semibold text-sm mb-4">Our
+                                    Mission</span>
+                                <h2 class="font-display text-3xl md:text-4xl font-bold text-gray-900 mb-6">Nurturing
+                                    Talents,<br><span class="gradient-text">Shaping Futures</span></h2>
+                                <p class="text-gray-600 text-lg mb-8 leading-relaxed">With expert guidance and a
+                                    supportive environment, we empower students to discover their potential and achieve
+                                    academic excellence while developing lifelong skills.</p>
+                                <div class="grid grid-cols-2 gap-6">
+                                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                                        <div class="text-3xl font-bold gradient-text mb-2">
+                                            100%
+                                        </div>
+                                        <div class="text-gray-600 text-sm">
+                                            Skills Boost
+                                        </div>
+                                    </div>
+                                    <div class="bg-white rounded-xl p-6 shadow-lg">
+                                        <div class="text-3xl font-bold gradient-text mb-2">
+                                            100%
+                                        </div>
+                                        <div class="text-gray-600 text-sm">
+                                            Parent Trust
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section><!-- Resources Section -->
+                <section class="py-20 bg-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-green-100 rounded-full text-green-700 font-semibold text-sm mb-4">Learning
+                                Materials</span>
+                            <h2 class="font-display text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Top
+                                <span class="gradient-text">Resources</span>
+                            </h2>
+                        </div>
+                        <div class="grid md:grid-cols-3 gap-8">
+                            <div
+                                class="text-center p-8 rounded-2xl bg-gradient-to-br from-red-50 to-orange-50 card-hover cursor-pointer">
+                                <div
+                                    class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-red-500 to-orange-500 rounded-2xl flex items-center justify-center shadow-xl">
+                                    <span class="text-4xl">🎬</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Video Lectures</h3>
+                                <p class="text-gray-600">Interesting and engaging video content for better understanding
+                                </p>
+                            </div>
+                            <div
+                                class="text-center p-8 rounded-2xl bg-gradient-to-br from-blue-50 to-cyan-50 card-hover cursor-pointer">
+                                <div
+                                    class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl flex items-center justify-center shadow-xl">
+                                    <span class="text-4xl">💡</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Study Tips</h3>
+                                <p class="text-gray-600">Helpful tips and strategies for effective learning</p>
+                            </div>
+                            <div
+                                class="text-center p-8 rounded-2xl bg-gradient-to-br from-purple-50 to-pink-50 card-hover cursor-pointer">
+                                <div
+                                    class="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-purple-500 to-pink-500 rounded-2xl flex items-center justify-center shadow-xl">
+                                    <span class="text-4xl">📊</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-gray-900 mb-2">Updates &amp; Reviews</h3>
+                                <p class="text-gray-600">Stay updated with latest news and student reviews</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- ABOUT PAGE -->
+            <div id="about-page" class="page-section hidden">
+                <section class="pt-32 pb-20 bg-gradient-to-b from-indigo-50 to-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-indigo-100 rounded-full text-indigo-700 font-semibold text-sm mb-4">About
+                                Us</span>
+                            <h1 class="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">We
+                                Make It Easy For You<br><span class="gradient-text">To Shine In This World</span></h1>
+                        </div>
+                        <div class="grid lg:grid-cols-2 gap-12 items-center mb-20">
+                            <div>
+                                <h2 class="font-display text-3xl font-bold text-gray-900 mb-6">Our Teaching Philosophy
+                                </h2>
+                                <p class="text-gray-600 text-lg leading-relaxed mb-6">We teach in a fun and interactive
+                                    way. Learning with us is like going on an adventure! Our friendly atmosphere
+                                    encourages students to share ideas and discover new skills.</p>
+                                <p class="text-gray-600 text-lg leading-relaxed">Every class is designed to spark
+                                    curiosity and make complex concepts simple. We believe that when learning is
+                                    enjoyable, students naturally excel.</p>
+                            </div>
+                            <div class="relative">
+                                <div class="absolute inset-0 hero-gradient rounded-3xl rotate-6 opacity-20"></div>
+                                <div class="relative bg-white rounded-3xl shadow-2xl p-12 text-center">
+                                    <div class="text-8xl mb-4">
+                                        🎯
+                                    </div>
+                                    <h3 class="text-2xl font-bold text-gray-900">Learning is an Adventure</h3>
+                                </div>
+                            </div>
+                        </div><!-- Mission -->
+                        <div
+                            class="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-3xl p-8 md:p-12 text-white text-center mb-20">
+                            <h2 class="font-display text-3xl md:text-4xl font-bold mb-6">Our Mission</h2>
+                            <p class="text-xl md:text-2xl font-light max-w-3xl mx-auto">Empowering Minds, Illuminating
+                                Futures: Together, We Dare to Dream.</p>
+                        </div><!-- Stats -->
+                        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                            <div class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover">
+                                <div class="text-4xl font-bold gradient-text mb-2">
+                                    500+
+                                </div>
+                                <div class="text-gray-600">
+                                    Happy Students
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover">
+                                <div class="text-4xl font-bold gradient-text mb-2">
+                                    4.9★
+                                </div>
+                                <div class="text-gray-600">
+                                    5-Star Rating
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover">
+                                <div class="text-4xl font-bold gradient-text mb-2">
+                                    95%
+                                </div>
+                                <div class="text-gray-600">
+                                    Skill Boost
+                                </div>
+                            </div>
+                            <div class="bg-white rounded-2xl p-8 text-center shadow-xl card-hover">
+                                <div class="text-4xl font-bold gradient-text mb-2">
+                                    100%
+                                </div>
+                                <div class="text-gray-600">
+                                    Parent Trust
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- BLOG PAGE -->
+            <div id="blog-page" class="page-section hidden">
+                <section class="pt-32 pb-20 bg-gradient-to-b from-purple-50 to-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-purple-100 rounded-full text-purple-700 font-semibold text-sm mb-4">Our
+                                Blog</span>
+                            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">Latest <span
+                                    class="gradient-text">Articles</span></h1>
+                            <p class="text-gray-600 text-lg">Insights, tips, and stories from Gyan Pathshala</p>
+                        </div>
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8"><!-- Blog Card 1 -->
+                            <article class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover">
+                                <div class="h-48 hero-gradient flex items-center justify-center"><span
+                                        class="text-6xl">⚡</span>
+                                </div>
+                                <div class="p-6"><span
+                                        class="px-3 py-1 bg-indigo-100 text-indigo-700 rounded-full text-sm font-medium">Announcement</span>
+                                    <h3 class="text-xl font-bold text-gray-900 mt-4 mb-3">Shakti Batch 2025</h3>
+                                    <p class="text-gray-600 mb-4">Introducing our flagship program for Class 10 students
+                                        with comprehensive Science and Math coaching.</p><button
+                                        class="text-indigo-600 font-semibold hover:text-indigo-700">Read More →</button>
+                                </div>
+                            </article><!-- Blog Card 2 -->
+                            <article class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover">
+                                <div
+                                    class="h-48 bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center">
+                                    <span class="text-6xl">✍️</span>
+                                </div>
+                                <div class="p-6"><span
+                                        class="px-3 py-1 bg-amber-100 text-amber-700 rounded-full text-sm font-medium">Creativity</span>
+                                    <h3 class="text-xl font-bold text-gray-900 mt-4 mb-3">Unlocking Creativity: The Art
+                                        of Storytelling</h3>
+                                    <p class="text-gray-600 mb-4">Discover how storytelling can enhance learning and
+                                        spark imagination in students.</p><button
+                                        class="text-indigo-600 font-semibold hover:text-indigo-700">Read More →</button>
+                                </div>
+                            </article><!-- Blog Card 3 -->
+                            <article class="bg-white rounded-2xl overflow-hidden shadow-xl card-hover">
+                                <div
+                                    class="h-48 bg-gradient-to-br from-blue-400 to-cyan-500 flex items-center justify-center">
+                                    <span class="text-6xl">📐</span>
+                                </div>
+                                <div class="p-6"><span
+                                        class="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium">Study
+                                        Tips</span>
+                                    <h3 class="text-xl font-bold text-gray-900 mt-4 mb-3">Mastering Mathematics: Tips to
+                                        Excel</h3>
+                                    <p class="text-gray-600 mb-4">Expert strategies and proven techniques to improve
+                                        your math scores dramatically.</p><button
+                                        class="text-indigo-600 font-semibold hover:text-indigo-700">Read More →</button>
+                                </div>
+                            </article>
+                        </div>
+                    </div>
+                </section>
+            </div><!-- CONTACT PAGE -->
+            <div id="contact-page" class="page-section hidden">
+                <section class="pt-32 pb-20 bg-gradient-to-b from-emerald-50 to-white">
+                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                        <div class="text-center mb-16"><span
+                                class="inline-block px-4 py-2 bg-emerald-100 rounded-full text-emerald-700 font-semibold text-sm mb-4">Get
+                                in Touch</span>
+                            <h1 class="font-display text-4xl md:text-5xl font-bold text-gray-900 mb-4">Contact <span
+                                    class="gradient-text">Us</span></h1>
+                            <p class="text-gray-600 text-lg">We'd love to hear from you. Reach out today!</p>
+                        </div>
+                        <div class="grid lg:grid-cols-2 gap-12"><!-- Contact Form -->
+                            <div class="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
+                                <h2 class="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h2>
+                                <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                                    <div class="space-y-6">
+                                        <div><label for="name" class="block text-sm font-medium text-gray-700 mb-2">Full
+                                                Name</label> <input type="text" id="name" name="name" required
+                                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 transition-colors"
+                                                placeholder="Your name">
+                                        </div>
+                                        <div><label for="email"
+                                                class="block text-sm font-medium text-gray-700 mb-2">Email
+                                                Address</label> <input type="email" id="email" name="email" required
+                                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 transition-colors"
+                                                placeholder="your@email.com">
+                                        </div>
+                                        <div><label for="phone"
+                                                class="block text-sm font-medium text-gray-700 mb-2">Phone
+                                                Number</label> <input type="tel" id="phone" name="phone"
+                                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 transition-colors"
+                                                placeholder="+91 XXXXX XXXXX">
+                                        </div>
+                                        <div><label for="subject"
+                                                class="block text-sm font-medium text-gray-700 mb-2">Subject</label>
+                                            <input type="text" id="subject" name="subject" required
+                                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 transition-colors"
+                                                placeholder="How can we help?">
+                                        </div>
+                                        <div><label for="message"
+                                                class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                                            <textarea id="message" name="message" rows="4" required
+                                                class="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-indigo-500 transition-colors resize-none"
+                                                placeholder="Your message..."></textarea>
+                                        </div><button type="submit"
+                                            class="w-full py-4 hero-gradient text-white rounded-xl font-semibold text-lg shadow-xl hover:shadow-2xl transition-all hover:scale-[1.02]">
+                                            Send Message ✉️ </button>
+                                    </div>
+                                </form>
+                                <div id="form-success"
+                                    class="hidden mt-6 p-4 bg-green-100 text-green-700 rounded-xl text-center font-medium">
+                                    ✓ Message sent successfully! We'll get back to you soon.
+                                </div>
+                            </div><!-- Contact Info -->
+                            <div class="space-y-8">
+                                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                                    <div
+                                        class="w-14 h-14 bg-indigo-100 rounded-xl flex items-center justify-center mb-4">
+                                        <span class="text-2xl">📍</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Our Address</h3>
+                                    <p class="text-gray-600">Mahavir Asthan, Main Rd, Civil Lines,<br>
+                                        Buxar, Bihar 802101, India</p>
+                                </div>
+                                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                                    <div
+                                        class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-4">
+                                        <span class="text-2xl">📧</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Email Us</h3>
+                                    <p class="text-gray-600" id="email-display">ravi@gyanpathshala.in</p>
+                                </div>
+                                <div class="bg-white rounded-2xl shadow-xl p-8 card-hover">
+                                    <div
+                                        class="w-14 h-14 bg-purple-100 rounded-xl flex items-center justify-center mb-4">
+                                        <span class="text-2xl">📞</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-gray-900 mb-2">Call Us</h3>
+                                    <p class="text-gray-600" id="phone-display">+91 88478 14633</p>
+                                    <p class="text-sm text-indigo-600 mt-2">Typically replies within minutes</p>
+                                </div>
+                                <div class="bg-white rounded-2xl shadow-xl p-8">
+                                    <h3 class="text-xl font-bold text-gray-900 mb-4">Follow Us</h3>
+                                    <div class="flex gap-4"><a href="#"
+                                            class="w-12 h-12 bg-green-500 rounded-xl flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">💬</a>
+                                        <a href="#"
+                                            class="w-12 h-12 bg-blue-500 rounded-xl flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">✈️</a>
+                                        <a href="#"
+                                            class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-white text-xl hover:scale-110 transition-transform">📷</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+        </div><!-- Footer -->
+        <footer class="bg-gray-900 text-white py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid md:grid-cols-4 gap-12">
+                    <div class="md:col-span-2">
+                        <div class="flex items-center gap-3 mb-6">
+                            <div class="w-12 h-12 rounded-xl hero-gradient flex items-center justify-center shadow-lg">
+                                <span class="text-white font-bold text-xl">GP</span>
+                            </div><span class="font-display font-bold text-2xl">Gyan Pathshala</span>
+                        </div>
+                        <p class="text-gray-400 mb-6 max-w-md">At Gyan Pathshala, learning is fun! We nurture talents
+                            and shape futures through innovative and engaging education.</p>
+                        <div class="flex gap-4"><a href="#"
+                                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-colors">💬</a>
+                            <a href="#"
+                                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-colors">✈️</a>
+                            <a href="#"
+                                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-indigo-600 transition-colors">📷</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-6">Quick Links</h4>
+                        <ul class="space-y-3">
+                            <li><a onclick="navigateTo('home')"
+                                    class="text-gray-400 hover:text-white cursor-pointer transition-colors">Home</a>
+                            </li>
+                            <li><a onclick="navigateTo('about')"
+                                    class="text-gray-400 hover:text-white cursor-pointer transition-colors">About</a>
+                            </li>
+                            <li><a onclick="navigateTo('blog')"
+                                    class="text-gray-400 hover:text-white cursor-pointer transition-colors">Blog</a>
+                            </li>
+                            <li><a onclick="navigateTo('contact')"
+                                    class="text-gray-400 hover:text-white cursor-pointer transition-colors">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-lg mb-6">Contact Info</h4>
+                        <ul class="space-y-3 text-gray-400">
+                            <li class="flex items-start gap-2"><span>📍</span> <span>Buxar, Bihar 802101</span></li>
+                            <li class="flex items-center gap-2"><span>📧</span> <span>ravi@gyanpathshala.in</span></li>
+                            <li class="flex items-center gap-2"><span>📞</span> <span>+91 88478 14633</span></li>
+                        </ul>
+                    </div>
+                </div>
+                <div
+                    class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-gray-500 text-sm">© 2025 Gyan Pathshala. All rights reserved.</p>
+                    <p class="text-gray-500 text-sm">Made with ❤️ for Education</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        // Default configuration
+        const defaultConfig = {
+            hero_title: 'Gyan Pathshala',
+            hero_message: 'Where innovative teaching meets boundless possibilities, guiding students towards a brighter tomorrow.',
+            main_course_title: 'Shakti Batch 2025',
+            contact_phone: '+91 88478 14633',
+            contact_email: 'ravi@gyanpathshala.in',
+            background_color: '#f8fafc',
+            primary_color: '#667eea',
+            text_color: '#1f2937',
+            accent_color: '#764ba2',
+            secondary_color: '#f093fb'
+        };
+
+        // Current page state
+        let currentPage = 'home';
+
+        // Navigation function
+        function navigateTo(page) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(p => p.classList.add('hidden'));
+
+            // Show selected page
+            const pageEl = document.getElementById(page + '-page');
+            if (pageEl) {
+                pageEl.classList.remove('hidden');
+                currentPage = page;
+
+                // Scroll to top
+                document.getElementById('app-wrapper').scrollTo({ top: 0, behavior: 'smooth' });
+            }
+        }
+
+        // Mobile menu toggle
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        // Form submission handler
+        async function handleFormSubmit(event) {
+            event.preventDefault();
+
+            const form = event.target;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            const successMessage = document.getElementById('form-success');
+
+            // Collect form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData.entries());
+
+            try {
+                // Disable button and show loading state
+                const originalBtnText = submitBtn.innerHTML;
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span class="animate-spin inline-block mr-2">⏳</span> Sending...';
+
+                const response = await fetch('/api/contact', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (response.ok) {
+                    // Show success message
+                    successMessage.textContent = '✓ ' + (result.message || 'Message sent successfully!');
+                    successMessage.classList.remove('hidden', 'bg-red-100', 'text-red-700');
+                    successMessage.classList.add('bg-green-100', 'text-green-700');
+                    form.reset();
+
+                    // Hide after 5 seconds
+                    setTimeout(() => {
+                        successMessage.classList.add('hidden');
+                    }, 5000);
+                } else {
+                    throw new Error(result.message || 'Something went wrong');
+                }
+            } catch (error) {
+                console.error('Submission Error:', error);
+                successMessage.textContent = '❌ ' + error.message;
+                successMessage.classList.remove('hidden', 'bg-green-100', 'text-green-700');
+                successMessage.classList.add('bg-red-100', 'text-red-700');
+            } finally {
+                // Re-enable button
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = 'Send Message ✉️';
+            }
+        }
+
+        // Scroll effect for navbar
+        function handleScroll() {
+            const navbar = document.getElementById('navbar');
+            const wrapper = document.getElementById('app-wrapper');
+
+            if (wrapper.scrollTop > 50) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        }
+
+        // Initialize scroll listener
+        document.getElementById('app-wrapper').addEventListener('scroll', handleScroll);
+
+        // Element SDK Integration
+        async function onConfigChange(config) {
+            // Update hero section
+            const heroTitle = document.getElementById('hero-title-display');
+            if (heroTitle) heroTitle.textContent = config.hero_title || defaultConfig.hero_title;
+
+            const heroMessage = document.getElementById('hero-message-display');
+            if (heroMessage) heroMessage.textContent = config.hero_message || defaultConfig.hero_message;
+
+            // Update course title
+            const mainCourse = document.getElementById('main-course-display');
+            if (mainCourse) mainCourse.textContent = config.main_course_title || defaultConfig.main_course_title;
+
+            // Update contact info
+            const phoneDisplay = document.getElementById('phone-display');
+            if (phoneDisplay) phoneDisplay.textContent = config.contact_phone || defaultConfig.contact_phone;
+
+            const emailDisplay = document.getElementById('email-display');
+            if (emailDisplay) emailDisplay.textContent = config.contact_email || defaultConfig.contact_email;
+        }
+
+        function mapToCapabilities(config) {
+            return {
+                recolorables: [
+                    {
+                        get: () => config.background_color || defaultConfig.background_color,
+                        set: (value) => { config.background_color = value; window.elementSdk.setConfig({ background_color: value }); }
+                    },
+                    {
+                        get: () => config.primary_color || defaultConfig.primary_color,
+                        set: (value) => { config.primary_color = value; window.elementSdk.setConfig({ primary_color: value }); }
+                    },
+                    {
+                        get: () => config.text_color || defaultConfig.text_color,
+                        set: (value) => { config.text_color = value; window.elementSdk.setConfig({ text_color: value }); }
+                    },
+                    {
+                        get: () => config.accent_color || defaultConfig.accent_color,
+                        set: (value) => { config.accent_color = value; window.elementSdk.setConfig({ accent_color: value }); }
+                    },
+                    {
+                        get: () => config.secondary_color || defaultConfig.secondary_color,
+                        set: (value) => { config.secondary_color = value; window.elementSdk.setConfig({ secondary_color: value }); }
+                    }
+                ],
+                borderables: [],
+                fontEditable: undefined,
+                fontSizeable: undefined
+            };
+        }
+
+        function mapToEditPanelValues(config) {
+            return new Map([
+                ['hero_title', config.hero_title || defaultConfig.hero_title],
+                ['main_course_title', config.main_course_title || defaultConfig.main_course_title],
+                ['contact_phone', config.contact_phone || defaultConfig.contact_phone],
+                ['contact_email', config.contact_email || defaultConfig.contact_email]
+            ]);
+        }
+
+        // Initialize SDK
+        if (window.elementSdk) {
+            window.elementSdk.init({
+                defaultConfig,
+                onConfigChange,
+                mapToCapabilities,
+                mapToEditPanelValues
+            });
+        }
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9d5ad55091a10b24',t:'MTc3MjM5NjEyMi4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
